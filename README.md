@@ -113,7 +113,6 @@ machine-learning-feature-scaling/
 ├── salary_scaling.py       # Main script
 ├── Salary_Data.csv         # Dataset
 ├── README.md               # Project documentation
-└── plots/                  # Output visualizations (optional)
 ```
 
 ---
