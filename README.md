@@ -1,67 +1,123 @@
-# Standardization & Model Performance Analysis
+# 💼 Salary Dataset — Feature Scaling with StandardScaler + ML Comparison
 
-This project explores the practical impact of Standardization in Machine Learning using Python and Scikit-learn. The goal of this notebook was not only to apply feature scaling but also to understand how different machine learning algorithms behave before and after standardization.
-
-Using `StandardScaler`, I transformed the feature distributions and compared model performance through visualization and regression analysis.
+A hands-on machine learning project demonstrating **feature scaling using StandardScaler** on a Salary dataset, along with a comparison of model performance (Linear Regression & KNN) before and after scaling.
 
 ---
 
-## Project Workflow
+## 📁 Dataset
 
-* Data Preprocessing & Exploration
-* Train-Test Split
-* Standardization using StandardScaler
-* Scatter Plot Visualization
-* KDE Distribution Analysis
-* Linear Regression
-* KNN Regression
-* Performance Evaluation using R² Score
+**File:** `Salary_Data.csv`
 
----
-
-## Key Findings
-
-### Linear Regression
-
-Linear Regression performance remained almost unchanged after standardization because the algorithm is largely scale-invariant and focuses on learning linear relationships between variables.
-
-### KNN Regression
-
-KNN Regression showed a major improvement after scaling:
-
-* **Before Standardization:** 0.8496
-* **After Standardization:** 0.9839
-
-This improvement occurred because KNN is a distance-based algorithm. Standardization balanced the contribution of all features and improved distance calculations significantly.
+| Column | Description |
+|--------|-------------|
+| `Age` | Age of the employee |
+| `Salary` | Annual salary |
+| `YearsExperience` | Years of work experience *(target variable)* |
 
 ---
 
-## Visualizations Included
+## 📌 Project Workflow
 
-* Before vs After Scaling Scatter Plots
-* KDE Distribution Plots
-* Feature Distribution Comparison
+### 1. Data Loading & Inspection
+- Load `Salary_Data.csv` using `pandas`
+- Check shape, data types, null values, and duplicates
 
-These visualizations helped in understanding how feature distributions changed after standardization and how scaling impacts data representation.
+### 2. Train-Test Split
+- Target: `YearsExperience`
+- Features: `Age`, `Salary`
+- Split: **80% train / 20% test** with `random_state=42`
+
+### 3. Feature Scaling — StandardScaler
+- Fit scaler **only on training data** (prevents data leakage)
+- Transform both train and test sets
+- Converts features to **mean = 0, std = 1**
+
+### 4. Visualizations
+- **Scatter plots** — Age vs Salary before and after scaling
+- **KDE plots** — Combined Age & Salary distributions
+- **KDE plots** — Individual feature distributions (Age, Salary) before vs. after
+
+### 5. Model Comparison — With & Without Scaling
+
+| Model | Before Scaling (R²) | After Scaling (R²) |
+|-------|--------------------|--------------------|
+| Linear Regression | — | — |
+| KNN Regressor (k=3) | — | — |
+
+> 💡 Fill in your R² scores above after running the script!
 
 ---
 
-## Technologies Used
+## 📊 Key Observations from Plots
 
-Python • Pandas • NumPy • Matplotlib • Seaborn • Scikit-learn • Jupyter Notebook
+### KDE Plots (Before vs After Scaling)
+- Before scaling, `Age` (~20–60) and `Salary` (~10k–150k) live on completely different scales
+- After StandardScaler, both features are centered around **0** with comparable spread
+
+### Scatter Plots (Before vs After Scaling)
+- The **shape and structure** of the data is preserved
+- Only the axis scale changes — relative distances between points remain the same
 
 ---
 
-## Conclusion
+## 💡 Why Scaling Matters
 
-This project helped me build a deeper understanding of preprocessing techniques in Machine Learning, especially the practical importance of Standardization for distance-based algorithms.
+- **Linear Regression** — coefficients are not affected by scale, so R² stays similar
+- **KNN Regressor** — heavily distance-based; scaling significantly improves performance because features with larger ranges dominate distance calculations without scaling
 
-It also strengthened my understanding of:
+---
 
-* Feature Scaling
-* Data Visualization
-* Regression Analysis
-* Model Evaluation
-* Algorithm Behavior before and after preprocessing
+## 🛠️ Tech Stack
 
-The project focuses on learning through implementation, experimentation, and visual interpretation rather than only theoretical understanding.
+- Python 3.x
+- `numpy`
+- `pandas`
+- `matplotlib`
+- `seaborn`
+- `scikit-learn`
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/MR-ROGUE01/machine-learning-feature-scaling.git
+cd machine-learning-feature-scaling
+```
+
+### 2. Install dependencies
+
+```bash
+pip install numpy pandas matplotlib seaborn scikit-learn
+```
+
+### 3. Add the dataset
+
+Place `Salary_Data.csv` in the root of the project directory.
+
+### 4. Run the script
+
+```bash
+python salary_scaling.py
+```
+
+---
+
+## 📂 Project Structure
+
+```
+machine-learning-feature-scaling/
+│
+├── salary_scaling.py       # Main script
+├── Salary_Data.csv         # Dataset
+├── README.md               # Project documentation
+└── plots/                  # Output visualizations (optional)
+```
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
