@@ -1,37 +1,38 @@
-# Feature Scaling & Model Performance Analysis
+# Standardization & Model Performance Analysis
 
-This project explores the impact of Feature Scaling on different Machine Learning algorithms using Python and Scikit-learn.
+This project explores the practical impact of Standardization in Machine Learning using Python and Scikit-learn. The goal of this notebook was not only to apply feature scaling but also to understand how different machine learning algorithms behave before and after standardization.
 
-The notebook focuses on understanding how scaling affects model behavior, feature distribution, and prediction performance through practical implementation and visualization.
+Using `StandardScaler`, I transformed the feature distributions and compared model performance through visualization and regression analysis.
 
 ---
 
-## Workflow
+## Project Workflow
 
-* Data Preprocessing
+* Data Preprocessing & Exploration
 * Train-Test Split
-* Feature Scaling using StandardScaler
-* Scatter Plot & KDE Visualization
+* Standardization using StandardScaler
+* Scatter Plot Visualization
+* KDE Distribution Analysis
 * Linear Regression
 * KNN Regression
-* Model Evaluation using R² Score
+* Performance Evaluation using R² Score
 
 ---
 
-## Key Observations
+## Key Findings
 
 ### Linear Regression
 
-Linear Regression performance remained almost unchanged after scaling because the algorithm is mostly scale-invariant.
+Linear Regression performance remained almost unchanged after standardization because the algorithm is largely scale-invariant and focuses on learning linear relationships between variables.
 
 ### KNN Regression
 
-KNN showed significant improvement after applying feature scaling:
+KNN Regression showed a major improvement after scaling:
 
-* Before Scaling: **0.8496**
-* After Scaling: **0.9839**
+* **Before Standardization:** 0.8496
+* **After Standardization:** 0.9839
 
-This happened because KNN is highly dependent on distance calculations, and scaling balanced the contribution of all input features.
+This improvement occurred because KNN is a distance-based algorithm. Standardization balanced the contribution of all features and improved distance calculations significantly.
 
 ---
 
@@ -40,6 +41,8 @@ This happened because KNN is highly dependent on distance calculations, and scal
 * Before vs After Scaling Scatter Plots
 * KDE Distribution Plots
 * Feature Distribution Comparison
+
+These visualizations helped in understanding how feature distributions changed after standardization and how scaling impacts data representation.
 
 ---
 
@@ -51,4 +54,14 @@ Python • Pandas • NumPy • Matplotlib • Seaborn • Scikit-learn • Jupy
 
 ## Conclusion
 
-This project helped me understand the practical importance of Feature Scaling and how different machine learning algorithms react differently to standardized data. It also improved my understanding of preprocessing, visualization, and model evaluation techniques in Machine Learning.
+This project helped me build a deeper understanding of preprocessing techniques in Machine Learning, especially the practical importance of Standardization for distance-based algorithms.
+
+It also strengthened my understanding of:
+
+* Feature Scaling
+* Data Visualization
+* Regression Analysis
+* Model Evaluation
+* Algorithm Behavior before and after preprocessing
+
+The project focuses on learning through implementation, experimentation, and visual interpretation rather than only theoretical understanding.
